@@ -11,3 +11,6 @@ Para esta parte, se creó una carpeta `views` donde se agregaron los cuatro comp
 
 ## Parte B - Componentes y Props
 Se creó el componente reutilizable `ProductoCard.vue` que recibe la información a través de props (nombre, categoría, productor, comuna y precio). Estos datos son enviados desde la vista padre `Productos.vue`, donde se almacenó un arreglo con 6 productos correspondientes a distintas comunas de la región de Ñuble.
+
+## Parte C - Listas y condicionales
+El catálogo se genera dinámicamente utilizando la directiva `v-for`. Se implementó un checkbox vinculado con `v-model` que permite filtrar la lista para ocultar los productos agotados. Se utilizó una propiedad computada para manejar la lógica del filtro y las directivas `v-if` y `v-else` para renderizar las tarjetas o, en su defecto, desplegar un mensaje advirtiendo que no hay productos disponibles.
