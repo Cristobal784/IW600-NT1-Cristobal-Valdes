@@ -14,3 +14,6 @@ Se creó el componente reutilizable `ProductoCard.vue` que recibe la informació
 
 ## Parte C - Listas y condicionales
 El catálogo se genera dinámicamente utilizando la directiva `v-for`. Se implementó un checkbox vinculado con `v-model` que permite filtrar la lista para ocultar los productos agotados. Se utilizó una propiedad computada para manejar la lógica del filtro y las directivas `v-if` y `v-else` para renderizar las tarjetas o, en su defecto, desplegar un mensaje advirtiendo que no hay productos disponibles.
+
+## Parte D - Comunicación mediante Emit
+Se incorporó un botón "¡Me interesa!" en cada producto. Al hacer clic, el componente hijo (`ProductoCard.vue`) genera el evento `seleccionar-producto` enviando el nombre del producto. El componente padre (`Productos.vue`) recibe este evento mediante `@seleccionar-producto` y ejecuta una función que despliega un banner visible en la parte superior de la pantalla confirmando el interés del usuario.

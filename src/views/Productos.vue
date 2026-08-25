@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2>Catálogo de Productos</h2>
+    
     <div style="margin-bottom: 20px;">
       <label>
         <input type="checkbox" v-model="mostrarSoloDisponibles">
@@ -8,7 +9,12 @@
       </label>
     </div>
 
+    <div v-if="mensajeInteres" style="background-color: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+      <strong>{{ mensajeInteres }}</strong>
+    </div>
+
     <div v-if="productosFiltrados.length > 0" style="display: flex; flex-wrap: wrap;">
+      <!-- Agregamos el "listener" @seleccionar-producto que llama a la función registrarInteres -->
       <ProductoCard 
         v-for="prod in productosFiltrados" 
         :key="prod.id"
@@ -17,6 +23,7 @@
         :productor="prod.productor"
         :comuna="prod.comuna"
         :precio="prod.precio"
+        @seleccionar-producto="registrarInteres"
       />
     </div>
 
@@ -31,6 +38,11 @@ import { ref, computed } from 'vue'
 import ProductoCard from '../components/ProductoCard.vue'
 
 const mostrarSoloDisponibles = ref(false)
+const mensajeInteres = ref('') // Variable reactiva para el mensaje
+
+const registrarInteres = (nombreDelProducto) => {
+  mensajeInteres.value = `¡Excelente elección! Has manifestado interés en: ${nombreDelProducto}. Ve a la sección de Contacto para comunicarte con el productor.`
+}
 
 const listaProductos = ref([
   { id: 1, nombre: 'Miel de Abeja Natural', categoria: 'Miel', productor: 'Apícola Los Andes', comuna: 'Pinto', precio: 4500, disponible: true },
