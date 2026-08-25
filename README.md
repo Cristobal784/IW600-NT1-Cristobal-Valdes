@@ -17,3 +17,6 @@ El catálogo se genera dinámicamente utilizando la directiva `v-for`. Se implem
 
 ## Parte D - Comunicación mediante Emit
 Se incorporó un botón "¡Me interesa!" en cada producto. Al hacer clic, el componente hijo (`ProductoCard.vue`) genera el evento `seleccionar-producto` enviando el nombre del producto. El componente padre (`Productos.vue`) recibe este evento mediante `@seleccionar-producto` y ejecuta una función que despliega un banner visible en la parte superior de la pantalla confirmando el interés del usuario.
+
+## Parte E - Formulario y validación
+Se implementó la vista `Contacto.vue` con los campos solicitados (nombre, correo, teléfono, comuna y mensaje), vinculándolos reactivamente usando `v-model`. Al enviar el formulario, una función valida que todos los datos estén presentes. Si falta alguno, se despliega una alerta de error; si los datos son correctos, se oculta el formulario y se muestra un mensaje de confirmación con el resumen de la información ingresada por el usuario.
